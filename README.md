@@ -1,8 +1,12 @@
 # SS14 DOC Editor
 
+![Screenshot 2025-06-23 093414](https://github.com/user-attachments/assets/c177df6d-bbc5-4e07-956f-095ec567a484)
+
 This project is for the MRP fans out there. No longer do you have torture your GPU just to write
 a silly form. Of course this isn't just for MRP. This can be used on any SS14 (Space Station 14) Server, as long as it supports
 the doc language.
+
+(This project isn't finished yet!)
 
 ## How does it work?
 
@@ -10,12 +14,10 @@ Easy! We use the same syntax styling that Space Station 14 uses and just simply 
 
 For Example
 
-``SS14
+``
 I feel [bold]like[/bold] im 4 different people at once
-```
+``
 
-
-```
 ## Guide?
 
 Coming soon...
@@ -34,6 +36,20 @@ and run this command to install all the dependencies.
 And now run this command to start up the project.
 
 `npm run dev`
+
+You should now see a funny thing that looks like this
+
+```
+
+  VITE vF.U.N  ready in 322 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+```
+
+Thats it! Just simply head into your localhost and you should see it.
 
 If for some reason you want to update it, just simply run
 
