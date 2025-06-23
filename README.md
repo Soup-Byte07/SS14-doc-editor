@@ -10,12 +10,10 @@ Easy! We use the same syntax styling that Space Station 14 uses and just simply 
 
 For Example
 
-``SS14
+``
 I feel [bold]like[/bold] im 4 different people at once
-```
+``
 
-
-```
 ## Guide?
 
 Coming soon...
