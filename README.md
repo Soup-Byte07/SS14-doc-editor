@@ -1,5 +1,7 @@
 # SS14 DOC Editor
 
+![Screenshot 2025-06-23 093414](https://github.com/user-attachments/assets/c177df6d-bbc5-4e07-956f-095ec567a484)
+
 This project is for the MRP fans out there. No longer do you have torture your GPU just to write
 a silly form. Of course this isn't just for MRP. This can be used on any SS14 (Space Station 14) Server, as long as it supports
 the doc language.
