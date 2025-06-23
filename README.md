@@ -1,12 +1,61 @@
-# React + Vite
+# SS14 DOC Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is for the MRP fans out there. No longer do you have torture your GPU just to write
+a silly form. Of course this isn't just for MRP. This can be used on any SS14 (Space Station 14) Server, as long as it supports
+the doc language.
 
-Currently, two official plugins are available:
+## How does it work?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Easy! We use the same syntax styling that Space Station 14 uses and just simply output that result.
 
-## Expanding the ESLint configuration
+For Example
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+``SS14
+I feel [bold]like[/bold] im 4 different people at once
+```
+
+
+```
+## Guide?
+
+Coming soon...
+
+## How do I run this project?
+
+First Git Clone the project:
+
+`https://github.com/Soup-Byte07/SS14-doc-editor.git`
+
+Once you cloned the project, simply change your directory into the project folder,
+and run this command to install all the dependencies.
+
+`npm install`
+
+And now run this command to start up the project.
+
+`npm run dev`
+
+If for some reason you want to update it, just simply run
+
+`npm update`
+
+## Want to help?
+
+Feel free to send in contributes. There is still a lot that I want to do, so any help would be greatly
+appreciated!
+
+## React + Vite
+
+This project uses both React and Vite. Here are the following docs for both of these frameworks.
+
+[Vite](https://vite.dev/)
+[React](https://react.dev/)
+
+
+## Wanna buy me coffee?
+
+Here is my KoFi
+
+[money me :3](https://ko-fi.com/soupbyte)
+
+
