@@ -3,7 +3,7 @@
   "author": "Soup-Byte07",
   "description": "An editor for SS14 forms",
   "private": false,
-  "homepage": "https://Soup-Byte07.github.io/SS14-doc-editor>",
+  "homepage": "https://Soup-Byte07.github.io/SS14-doc-editor",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
