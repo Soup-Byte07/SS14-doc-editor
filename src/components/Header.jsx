@@ -4,7 +4,7 @@ function Header() {
     <>
       <div className="my-3">
         <header>
-          <h1 className="has-text-centered is-size-1">Coming Soon</h1>
+          <h1 className="has-text-centered is-size-1">SS14 Doc Editor</h1>
         </header>
       </div>
     </>
