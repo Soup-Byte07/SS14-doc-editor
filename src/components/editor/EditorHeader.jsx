@@ -1,16 +1,16 @@
 function EditorHeader({ title, onSave, onClose }) {
   return (
-    <header className="editor-header">
-      <h1 className="editor-title">{title}</h1>
-      <div className="editor-actions">
-        <button className="button is-primary" onClick={onSave}>
+    <>
+      <div className="editor-title panel-heading">{title}</div>
+      <div className="editor-actions panel-tabs">
+        <a href="#" onClick={onSave}>
           Save
-        </button>
-        <button className="button is-light" onClick={onClose}>
+        </a>
+        <a href="#" onClick={onClose}>
           Close
-        </button>
+        </a>
       </div>
-    </header>
+    </>
   );
 }
 
