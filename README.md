@@ -8,6 +8,10 @@ the doc language.
 
 (This project isn't finished yet!)
 
+## LIVE DEMO AGHHHH!!!
+
+[try it out here!](https://soup-byte07.github.io/SS14-doc-editor/)
+
 ## How does it work?
 
 Easy! We use the same syntax styling that Space Station 14 uses and just simply output that result.
