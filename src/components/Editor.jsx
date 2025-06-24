@@ -17,7 +17,6 @@ function Editor() {
       <div className="columns is-gapless">
         <div className="column is-half">
           <Input handleChange={handleChange}/>
-          <p>{input}</p>
         </div>
         <div className="column is-half">
           <Output handleInput={input} />
