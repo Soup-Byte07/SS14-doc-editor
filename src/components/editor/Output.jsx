@@ -1,32 +1,27 @@
-import DOMPurify from 'dompurify';
-import { useMemo } from 'react';
+import DOMPurify from 'dompurify'
+import { useMemo } from 'react'
+import { marked } from 'marked'
+import { colorExtension, headExtension } from '../../libs/parserExtensions'
 
 import './Output.css'
 
 
+marked.use({
+  mangle: false,
+  headerIds: false,
+  extensions: [colorExtension, headExtension]
+});
+
 function Output({ handleInput }) {
-
-
-  // This so messy and unreadable. Might have to change it later
-  let translateInput = (text => {
-    return text
-      .replace(/\[bold\](.*?)\[\/bold\]/g, '<strong>$1</strong>')
-      .replace(/\[italic\](.*?)\[\/italic\]/g, '<em>$1</em>')
-      .replace(/\[underline\](.*?)\[\/underline\]/g, '<u>$1</u>')
-      .replace(/\[color=(#[0-9A-Fa-f]{6}|[a-zA-Z]+)\](.*?)\[\/color\]/g, (match, colorValue, content) => {
-        const safeColor = DOMPurify.sanitize(colorValue, { USE_PROFILES: { html: false, svg: false, mathMl: false } });
-        return `<span style="color:${safeColor}">${content}</span>`;
-      }).replace(/\[head=(\d)\](.*?)\[\/head\]/g, (match, level, content) => {
-        const headingLevel = parseInt(level, 10);
-        const tag = `h${Math.min(6, Math.max(1, headingLevel))}`;
-        console.log(tag)
-        return `<${tag}>${content}</${tag}>`;
-      });
-  })
-
   const sanitizedHtml = useMemo(() => {
-    const rawHtml = translateInput(handleInput);
-    return DOMPurify.sanitize(rawHtml);
+    const rawHtml = marked.parse(handleInput)
+    const safeHtml = DOMPurify.sanitize(rawHtml, {
+      USE_PROFILES: { html: true },
+      FORBID_TAGS: ['script', 'iframe', 'style', 'link', 'form', 'input'],
+      FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover'],
+      ADD_TAGS: ['span', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'br', 'a']
+    })
+    return safeHtml
   }, [handleInput]);
 
   return (
