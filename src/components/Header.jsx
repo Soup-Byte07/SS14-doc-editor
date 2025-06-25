@@ -3,7 +3,7 @@ import { useState } from "react"
 function HandleTheme() {
   
 
-  let [theme, changeTheme] = useState([window.localStorage.getItem("currentTheme")])
+  let [theme, changeTheme] = useState([window.localStorage.getItem("currentTheme") || 'light'])
 
   let change = () => {
 
