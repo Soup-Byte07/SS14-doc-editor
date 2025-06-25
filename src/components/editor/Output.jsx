@@ -1,14 +1,14 @@
 import DOMPurify from 'dompurify'
 import { useState, useEffect } from 'react'
 import { marked } from 'marked'
-import { colorExtension, headExtension, boldExtension, italicExtension } from '../../libs/parserExtensions'
+import { colorExtension, headExtension, boldExtension, italicExtension, boldItalicExtension } from '../../libs/parserExtensions'
 import customRenderer from '../../libs/renderer'
 import './Output.css'
 
 
 
 marked.use({
-  extensions: [colorExtension, headExtension, boldExtension, italicExtension],
+  extensions: [colorExtension, headExtension, boldExtension, italicExtension, boldItalicExtension],
   breaks: true,
   gfm: true,
   renderer: customRenderer

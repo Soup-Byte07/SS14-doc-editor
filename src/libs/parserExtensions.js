@@ -74,10 +74,27 @@ const italicExtension = {
   }
 };
 
+// [bolditalic]text/[bolditalic]
+const boldItalicExtension = {
+  name: 'bolditalic',
+  level: 'inline',
+  start(src) { return src.match(/\[bolditalic\]/)?.index },
+  tokenizer(src) {
+    const openTag = /^\[bolditalic\]/
+    const closeTag = /^\[\/bolditalic\]/
+    return nestedParser(src, openTag, closeTag, 'bolditalic', this, 'inline')
+  },
+  renderer(token) {
+    const filteredTokens = token.tokens.filter(t => t.type !== 'space');
+    const innerContent = this.parser.parseInline(filteredTokens);
+    return `<span style="font-weight: bold; font-style: italic;">${innerContent}</span>`
+  }
+}
 
 export {
   colorExtension,
   headExtension,
   boldExtension,
-  italicExtension
+  italicExtension,
+  boldItalicExtension
 };
