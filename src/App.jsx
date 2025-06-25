@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div>
-        <div className="container has-text-black has-background-white-ter">
+        <div className="container ">
           <Header/>
           <div className="section">
             <Editor/>

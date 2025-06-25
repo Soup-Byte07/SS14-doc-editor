@@ -10,7 +10,8 @@ import './Output.css'
 marked.use({
   extensions: [colorExtension, headExtension, boldExtension, italicExtension],
   breaks: true,
-  gfm: true
+  gfm: true,
+  renderer: customRenderer
 });
 
 function Output({ handleInput }) {
