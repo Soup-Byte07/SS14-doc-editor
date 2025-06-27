@@ -1,3 +1,4 @@
+import './Inout.css'
 import EditorHeader from './EditorHeader.jsx'
 
 function Input({handleChange}) {
@@ -9,12 +10,12 @@ function Input({handleChange}) {
           onSave={() => console.log('Save clicked')}
           onClose={() => console.log('Close clicked')}
         />
-        <div className="panel-block">
+        <div>
           <textarea
             type="text"
             onChange={handleChange}
             rows="23"
-            className="textarea is-primary"
+            className="textarea"
             placeholder="Type something..."
           ></textarea>         
         </div>
