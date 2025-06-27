@@ -1,34 +1,20 @@
 import DOMPurify from 'dompurify'
 import { useState, useEffect } from 'react'
-import { marked } from 'marked'
-import { colorExtension, headExtension, boldExtension, italicExtension, boldItalicExtension } from '../../libs/parserExtensions'
-import customRenderer from '../../libs/renderer'
+import { simpleParser } from '../../libs/simpleParser'
 import './Output.css'
-
-
-
-marked.use({
-  extensions: [colorExtension, headExtension, boldExtension, italicExtension, boldItalicExtension],
-  breaks: true,
-  gfm: true,
-  renderer: customRenderer
-});
 
 function Output({ handleInput }) {
   let [outputHTML, changeOutputHTML] = useState('')
 
   useEffect(() => {
-    async function parseMarkdown() {
-      const safeHtml = DOMPurify.sanitize(handleInput, {
-        USE_PROFILES: { html: true },
-        FORBID_TAGS: ['script', 'iframe', 'style', 'link', 'form', 'input'],
-        FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover'],
-        ADD_TAGS: ['span', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'br', 'a']
-      })
-      const parsedHtml = await marked.parse(safeHtml);
-      changeOutputHTML(parsedHtml)
-    }
-    parseMarkdown()
+    const parsedHtml = simpleParser(handleInput);
+    const safeHtml = DOMPurify.sanitize(parsedHtml, {
+      USE_PROFILES: { html: true },
+      FORBID_TAGS: ['script', 'iframe', 'style', 'link', 'form', 'input'],
+      FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover'],
+      ADD_TAGS: ['span', 'br']
+    });
+    changeOutputHTML(safeHtml);
   }, [handleInput]);
 
   return (

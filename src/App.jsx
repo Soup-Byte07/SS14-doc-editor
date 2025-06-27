@@ -2,6 +2,7 @@ import './App.css'
 
 import Header from './components/Header.jsx'
 import Editor from './components/Editor.jsx'
+import Footer from './components/Footer.jsx'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Editor/>
           </div>
         </div>
+        <Footer/>
       </div>
     </>
   )

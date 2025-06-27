@@ -35,6 +35,7 @@ function Header() {
           <h1 className="has-text-centered is-size-1">SS14 Doc Editor</h1>
         </header>
       </div>
+      <p className="my-3 has-text-centered">A document editor using BBCode-Style for Space Station 14 chuds</p>
     </>
   )
 }
