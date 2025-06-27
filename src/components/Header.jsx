@@ -37,7 +37,7 @@ function Header({ currentTheme, toggleTheme}) {
                 SS14<br/> 
                 <span className="has-text-weight-bold">Doc Editor</span><br/>
 
-                <span class="is-size-7">*not affliated with the Wizden team.</span>
+                <span class="is-size-7">*not affiliated with the Wizden team.</span>
               </p>
             </div>
           </div>
