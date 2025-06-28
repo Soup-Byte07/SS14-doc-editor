@@ -13,7 +13,10 @@ function HandleTheme({nextTheme, changeTheme}) {
   return (
     <>
       <button className="button" onClick={change}>
-        {nextTheme}
+        <span class="icon">
+          <i className={`fa-solid fa-${nextTheme == 'dark' ? 'sun' : 'moon'}`}></i>
+        </span>
+        <span>{nextTheme}</span>
       </button>
     </>
   )
@@ -37,7 +40,7 @@ function Header({ currentTheme, toggleTheme}) {
                 SS14<br/> 
                 <span className="has-text-weight-bold">Doc Editor</span><br/>
 
-                <span class="is-size-7">*not affiliated with the Wizden team.</span>
+                <span className="is-size-7">*not affiliated with the Wizden team.</span>
               </p>
             </div>
           </div>

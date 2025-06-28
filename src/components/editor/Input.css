@@ -1,0 +1,8 @@
+.textarea {
+  border-radius: none !important;
+}
+
+.list-templates {
+  min-height: 300px;
+  overflow: hidden;
+}
