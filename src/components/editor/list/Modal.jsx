@@ -1,5 +1,4 @@
 function Modal({ title, component, isOpen, toggleModal }) {
-  console.log(isOpen)
   if (isOpen == false)  return null
 
   let modalStatusClass = `modal ${isOpen ? 'is-active' : ''}`

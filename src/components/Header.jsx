@@ -13,7 +13,7 @@ function HandleTheme({nextTheme, changeTheme}) {
   return (
     <>
       <button className="button" onClick={change}>
-        <span class="icon">
+        <span className="icon">
           <i className={`fa-solid fa-${nextTheme == 'dark' ? 'sun' : 'moon'}`}></i>
         </span>
         <span>{nextTheme}</span>
@@ -27,9 +27,16 @@ function Header({ currentTheme, toggleTheme}) {
   return (
     <>
       <div className="my-3 p-3">
-        <div className="buttons is-right">
-          <HandleTheme nextTheme={currentTheme} changeTheme={toggleTheme} />
-        </div>
+          <div className="buttons is-right">
+            <a href="https://github.com/Soup-Byte07/SS14-doc-editor" target="_blank" className="button is-link">
+              <span className="icon">
+                <i className="fab fa-github"></i>
+              </span>
+              <span>SS14-doc-editor</span>
+            </a>
+            <HandleTheme nextTheme={currentTheme} changeTheme={toggleTheme} />
+          </div>
+
         <header className="logo">
           <div className="is-inline-flex">
             <div>
@@ -46,7 +53,7 @@ function Header({ currentTheme, toggleTheme}) {
           </div>
         </header>
       </div>
-      <p className="my-3 has-text-centered">A document editor using BBCode-Style for Space Station 14 chuds</p>
+      <p className="my-3 has-text-centered">A document editor for the Space Station 14 paperwork chuds</p>
     </>
   )
 }

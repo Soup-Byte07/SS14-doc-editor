@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getTemplates, selectTemplate } from '../../../store/features/templateListStore'
+import { removeTemplate, selectTemplate } from '../../../store/features/templateListStore'
 
 function TemplateList({ callback }) {
   
@@ -15,16 +15,32 @@ function TemplateList({ callback }) {
     fetchTemplates()
   }, [dispatch])
   const templates = useMemo(() => {
-    console.log(templateList)
     return templateList.map((template,i) => (
-      <tr className="is-clickable" key={template.title} onClick={() => {
-        console.log(i)
-        dispatch(selectTemplate(i))
-        callback(template)
-      }}>
+      <tr key={template.id}>
         <td>{template.title}</td>
         <td>{new Date(template.createdAt).toLocaleDateString()}</td>
         <td>{new Date(template.updatedAt).toLocaleDateString()}</td>
+        <td>
+          <button className="button is-primary is-icon" onClick={(e) => {
+            e.preventDefault()
+            dispatch(selectTemplate(i))
+            callback(template)
+          }}>
+            <span>
+              <i className="fa-solid fa-pen-to-square"></i>
+            </span>
+          </button>
+        </td>
+        <td>
+          <button className="button is-danger is-icon" onClick={(e) => {
+            e.preventDefault()
+            dispatch(removeTemplate(template.id))
+          }}>
+            <span>
+              <i className="fa-solid fa-trash"></i>
+            </span>
+          </button>
+        </td>
       </tr>
     ))
   }, [templateList])
@@ -35,13 +51,14 @@ function TemplateList({ callback }) {
 
   return (
     <div className="template-list">
-      <h2 className="title is-3">Templates</h2>
       <table className="table is-fullwidth is-striped is-hoverable">
         <thead>
           <tr>
             <th>Title</th>
             <th>Created At</th>
             <th>Updated At</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

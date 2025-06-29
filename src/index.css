@@ -15,3 +15,11 @@ html,body {
   font-size: 16px;
 }
 
+
+.modal-card-head {
+  box-shadow: none;
+}
+
+.file-cta {
+  border: none;
+}

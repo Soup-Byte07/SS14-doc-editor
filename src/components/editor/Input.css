@@ -1,8 +1,15 @@
 .textarea {
-  border-radius: none !important;
+  border-radius: 0px !important;
 }
 
 .list-templates {
   min-height: 300px;
   overflow: hidden;
+}
+
+.panel {
+  box-shadow: none;
+}
+.panel-block {
+  border-bottom: none;
 }
