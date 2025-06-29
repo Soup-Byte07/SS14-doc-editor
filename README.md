@@ -1,13 +1,12 @@
+
+
+![Screenshot 2025-06-29 052612](https://github.com/user-attachments/assets/460a70c0-3b4f-4a47-b0da-378994b3fd4d)
+
 # SS14 DOC Editor
 
-![ss14-doc-editor](https://github.com/user-attachments/assets/5e80d4c9-ef6d-4440-af4d-9e0f441683a2)
-
-
-This project is for the MRP fans out there. No longer do you have torture your GPU just to write
-a silly form. Of course this isn't just for MRP. This can be used on any SS14 (Space Station 14) Server, as long as it supports
-the doc language.
-
-(This project isn't finished yet!)
+This project is for the <del>MRP fans</del> Paperwork chuds out there. No longer do you have torture your GPU just to write
+a silly form. <del>Of course this isn't just for MRP.</del> This can be used on any SS14 (Space Station 14) Server, as long as it supports
+the BBCode Style language.
 
 ## LIVE DEMO AGHHHH!!!
 
@@ -17,17 +16,38 @@ the doc language.
 
 Easy! We use the same syntax styling that Space Station 14 uses and just simply output that result.
 
-For Example
+If you want head titles then it would be something like this:
 
 ``
-I feel [bold]like[/bold] im 4 different people at once
+[head=1]Hello, World![/head]
 ``
 
-## Guide?
+of course it can go from 1 to 6.
 
-Coming soon...
+Want to change the color?
+``
+[color=red]Hello, World![/color]
+``
+
+Supports hex and named colors.
+
+Here are available tags:
+
+``
+[bold]Hello, World[/bold]
+[italic]Hello, World[/italic]
+[bolditalic]Hewwo, World[/bolditalic]
+[bullet/] teheehee
+``
 
 ## Media
+
+Most latest:
+
+![Screenshot 2025-06-29 053359](https://github.com/user-attachments/assets/074d64d5-fdff-4c33-b91d-c5cc45480e29)
+
+
+The very first build here:
 
 ![Screenshot 2025-06-23 093414](https://github.com/user-attachments/assets/c177df6d-bbc5-4e07-956f-095ec567a484)
 
@@ -35,7 +55,7 @@ Coming soon...
 
 First Git Clone the project:
 
-`https://github.com/Soup-Byte07/SS14-doc-editor.git`
+`git clone https://github.com/Soup-Byte07/SS14-doc-editor.git`
 
 Once you cloned the project, simply change your directory into the project folder,
 and run this command to install all the dependencies.
@@ -58,7 +78,7 @@ You should now see a funny thing that looks like this
 
 ```
 
-Thats it! Just simply head into your localhost and you should see it.
+Thats it! Just simply head to http://localhost:5173/ and you should see it.
 
 If for some reason you want to update it, just simply run
 
@@ -66,8 +86,8 @@ If for some reason you want to update it, just simply run
 
 ## Want to help?
 
-Feel free to send in contributes. There is still a lot that I want to do, so any help would be greatly
-appreciated!
+You can if you want.
+If you do find any issues in the editor, pretty please shout at me in the issues thingy.
 
 ## React + Vite
 
