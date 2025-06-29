@@ -4,7 +4,7 @@
 
 # SS14 DOC Editor
 
-This project is for the <del>MRP fans</del> Paperwork chuds out there. No longer do you have torture your GPU just to write
+This project is for the <del>MRP fans</del> Paperwork pushers out there. No longer do you have torture your GPU just to write
 a silly form. <del>Of course this isn't just for MRP.</del> This can be used on any SS14 (Space Station 14) Server, as long as it supports
 the BBCode Style language.
 

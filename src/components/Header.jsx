@@ -53,7 +53,7 @@ function Header({ currentTheme, toggleTheme}) {
           </div>
         </header>
       </div>
-      <p className="my-3 has-text-centered">A document editor for the Space Station 14 paperwork chuds</p>
+      <p className="my-3 has-text-centered">A document editor for the Space Station 14 paperwork pushers</p>
     </>
   )
 }
