@@ -35,8 +35,17 @@ Here are available tags:
 
 ``
 [bold]Hello, World[/bold]
+``
+
+``
 [italic]Hello, World[/italic]
+``
+
+``
 [bolditalic]Hewwo, World[/bolditalic]
+``
+
+``
 [bullet/] teheehee
 ``
 
