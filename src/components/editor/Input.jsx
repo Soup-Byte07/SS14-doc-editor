@@ -22,7 +22,7 @@ function Input({handleChange, handleText}) {
   }
 
   let [isSavingAsTeplateOpen, openSaveAsTemplate] = useState(false)
-  let [saveClass, setSaveClass] = useState("")
+  let [saveClass, setSaveClass] = useState("button is-light")
   let saveAsTemplate = () => {
     openSaveAsTemplate(false)
   }
@@ -47,6 +47,50 @@ function Input({handleChange, handleText}) {
     const reader = new FileReader()
     reader.onload = (e) => handleChange(e.target.result)
     reader.readAsText(file)
+  }
+
+
+  const detectInputBold = () => {
+    let txtarea = document.getElementById("textEditor");
+    if(!txtarea) return
+    let start = txtarea.selectionStart;
+    let finish = txtarea.selectionEnd;
+
+    let beforeSel = txtarea.value.substring(0, start)
+    let afterSel = txtarea.value.substring(finish, txtarea.value.length)
+    let sel
+    if(txtarea.value.substring(start, finish).includes("[bold]")) {
+      sel = txtarea.value.substring(start, finish).replace(/\[bold\]/g, "").replace(/\[\/bold\]/g, "")
+      sel = sel.replace(/^\s*|\s*$/g, "")
+      if(sel.length === 0) {
+        sel = txtarea.value.substring(start, finish)
+      }
+    } else {
+      sel = "[bold]" + txtarea.value.substring(start, finish) + "[/bold]"
+    }
+    handleChange(beforeSel + sel + afterSel)
+  }
+
+const detectInputItalic = () => {
+    let txtarea = document.getElementById("textEditor");
+    if(!txtarea) return
+    let start = txtarea.selectionStart;
+    let finish = txtarea.selectionEnd;
+
+    let beforeSel = txtarea.value.substring(0, start)
+    let afterSel = txtarea.value.substring(finish, txtarea.value.length)
+    let sel
+    if(txtarea.value.substring(start, finish).includes("[italic]")) {
+      sel = txtarea.value.substring(start, finish).replace(/\[italic\]/g, "").replace(/\[\/italic\]/g, "")
+      sel = sel.replace(/^\s*|\s*$/g, "")
+      if(sel.length === 0) {
+        sel = txtarea.value.substring(start, finish)
+      }
+    } else {
+      sel = "[italic]" + txtarea.value.substring(start, finish) + "[/italic]"
+    }
+
+    handleChange(beforeSel + sel + afterSel)
   }
 
 
@@ -84,7 +128,7 @@ function Input({handleChange, handleText}) {
                 id: selectedTemplate.id
               }
               dispatch(updateTemplate(payload))
-              setSaveClass("has-text-success")
+              setSaveClass("has-text-success button")
               setTimeout(() => {
                 setSaveClass("")
               }, 1000)
@@ -109,10 +153,32 @@ function Input({handleChange, handleText}) {
           }}
         />
         <div>
+          <div className="buttons my-0">
+            <button className="button is-light" onClick={detectInputBold}>
+              <span className="icon">
+                <i className="fa-solid fa-bold"></i>
+              </span>
+            </button>
+            <button className="button is-light" onClick={detectInputItalic}>
+              <span className="icon">
+                <i className="fa-solid fa-italic"></i>
+              </span>
+            </button>
+            <div className="is-inline-flex">
+              <button className="button is-light">
+                <span className="icon">
+                  <i className="fa-solid fa-paintbrush"></i>
+                </span>
+              </button>
+              <input type="color" className="p-1"/>
+            </div>
+          </div>
           <textarea
+            id="textEditor"
             type="text"
             value={handleText}
             onChange={handleChange}
+            cols="80"
             rows="23"
             className="textarea"
             placeholder="Type something..."

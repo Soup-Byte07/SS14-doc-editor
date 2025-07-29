@@ -28,48 +28,38 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
           </p>
         </div>
       </div>
-      <div className="editor-actions panel-tabs">
-        <a href="#" onClick={onLoad}>
-          <span className="icon mr-1">
+      <div className="buttons">
+        <a className="button is-light" href="#" onClick={onLoad}>
+          <span className="icon">
             <i className="fas fa-folder-open"></i>
           </span>
-          <span>Load</span>
         </a>
         <a href="#" onClick={onSave} className={classSave}>
-          <span className="icon mr-1">
+          <span className="icon">
             <i className="fas fa-save"></i>
           </span>
-          <span>Save</span>
         </a>
-        <a href="#" onClick={onSaveAs}>
-          <span className="icon mr-1">
+        <a className="button is-light" href="#" onClick={onSaveAs}>
+          <span className="icon">
             <i className="fa-solid fa-file-circle-plus"></i>
           </span>
-          <span>Save As</span>
         </a>
-        <a href="#" onClick={onClear}>
-          <span className="icon mr-1">
+        <a className="button is-light" href="#" onClick={onClear}>
+          <span className="icon">
             <i className="fas fa-trash-alt"></i>
           </span>
-          <span>Clear</span>
         </a>
-        <a href="#" onClick={onExport}>
-          <span className="icon mr-1">
+        <a className="button is-light is-light" href="#" onClick={onExport}>
+          <span className="icon">
             <i className="fas fa-file-export"></i>
           </span>
-          <span>
-          Export
-          </span>
         </a>
-        <div className="file p-3 is-ghost has-text-link">
-          <label className="file-label">
+        <div className="button p-0 file is-light">
+          <label className="file-label p-3">
             <input name="import" className="file-input" type="file" accept=".txt" onChange={onImport} />
-            <span className="is-inline-flex">
-              <span className="file-icon has-text-link">
-                <i className="fas fa-upload mt-1"></i>
+              <span className="file-icon has-text-dark mr-0">
+                <i className="fas fa-upload "></i>
               </span>
-              <span className="file-label has-text-link"> Import </span>
-            </span>
           </label>
         </div>
       </div>
