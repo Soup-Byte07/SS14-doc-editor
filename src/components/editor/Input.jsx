@@ -6,6 +6,7 @@ import { updateTemplate } from '../../store/features/templateListStore'
 import Modal from './list/Modal.jsx'
 import TemplateList from './list/TemplateList.jsx'
 import SaveForm from './list/SaveForm.jsx'
+import PreloadedTemplate from './list/PreloadedTemplates.jsx'
 
 import './Input.css'
 import EditorHeader from './EditorHeader.jsx'
@@ -25,6 +26,13 @@ function Input({handleChange, handleText}) {
   let [saveClass, setSaveClass] = useState("button is-light")
   let saveAsTemplate = () => {
     openSaveAsTemplate(false)
+  }
+
+  let [isPreloadedTemplatesOpen, openPreloadedTemplates] = useState(false)
+  let loadPreloadedTemplate = (template) => {
+
+    handleChange(template)
+    openPreloadedTemplates(false)
   }
 
   let [selectedTextColor, changeSelectedTextColor] = useState("#000000")
@@ -120,6 +128,13 @@ function Input({handleChange, handleText}) {
         toggleModal={openSaveAsTemplate}
       />
 
+      <Modal
+        title="Preloaded Templates"
+        component={<PreloadedTemplate callback={loadPreloadedTemplate} />}
+        isOpen={isPreloadedTemplatesOpen}
+        toggleModal={openPreloadedTemplates}
+      />
+
       <article className="panel is-dark">
         <EditorHeader
           onLoad={(e) => {
@@ -160,6 +175,10 @@ function Input({handleChange, handleText}) {
           onImport={(e) => {
             importTemplate(e)
           }}
+          onShowPreloaded={(e) => {
+            e.preventDefault()
+            openPreloadedTemplates(true)
+          }}
         />
         <div>
           <div className="buttons my-0">
@@ -188,7 +207,7 @@ function Input({handleChange, handleText}) {
             value={handleText}
             onChange={handleChange}
             cols="80"
-            rows="23"
+            rows="24"
             className="textarea"
             placeholder="Type something..."
           ></textarea>         

@@ -1,0 +1,6 @@
+[submodule "ss14-forms-txt"]
+	path = ss14-forms-txt
+	url = https://github.com/Moomoobeef/ss14-forms-txt.git
+[submodule "public/txt/ss14-forms-txt"]
+	path = public/txt/ss14-forms-txt
+	url = https://github.com/Moomoobeef/ss14-forms-txt.git

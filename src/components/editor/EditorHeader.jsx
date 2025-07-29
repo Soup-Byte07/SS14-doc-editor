@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { unselectTemplate } from '../../store/features/templateListStore';
 
 
-function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, onExport }) {
+function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, onExport, onShowPreloaded }) {
   const dispatch = useDispatch()
   const selectedTemplate = useSelector(state => state.templateList.selectedTemplate)
   const clearSelectedTemplate = () => {
@@ -49,7 +49,7 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
             <i className="fas fa-trash-alt"></i>
           </span>
         </a>
-        <a className="button is-light is-light" href="#" onClick={onExport}>
+        <a className="button is-light" href="#" onClick={onExport}>
           <span className="icon">
             <i className="fas fa-file-export"></i>
           </span>
@@ -62,6 +62,9 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
               </span>
           </label>
         </div>
+        <a className="button is-light is-right" href="#" onClick={onShowPreloaded}>
+          Preloaded Templates
+        </a>
       </div>
     </>
   );
