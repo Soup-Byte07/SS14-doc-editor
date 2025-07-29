@@ -27,8 +27,8 @@ function Input({handleChange, handleText}) {
     openSaveAsTemplate(false)
   }
 
+  let [selectedTextColor, changeSelectedTextColor] = useState("#000000")
 
-  // copy and paste go brrr
   let exportTemplate = () => {
     const data = new Blob([handleText], { type: 'text/plain' })
     const url = window.URL.createObjectURL(data)
@@ -55,41 +55,50 @@ function Input({handleChange, handleText}) {
     if(!txtarea) return
     let start = txtarea.selectionStart;
     let finish = txtarea.selectionEnd;
-
     let beforeSel = txtarea.value.substring(0, start)
     let afterSel = txtarea.value.substring(finish, txtarea.value.length)
     let sel
     if(txtarea.value.substring(start, finish).includes("[bold]")) {
       sel = txtarea.value.substring(start, finish).replace(/\[bold\]/g, "").replace(/\[\/bold\]/g, "")
       sel = sel.replace(/^\s*|\s*$/g, "")
-      if(sel.length === 0) {
-        sel = txtarea.value.substring(start, finish)
-      }
-    } else {
-      sel = "[bold]" + txtarea.value.substring(start, finish) + "[/bold]"
-    }
+      if(sel.length === 0) sel = txtarea.value.substring(start, finish)
+    } sel = "[bold]" + txtarea.value.substring(start, finish) + "[/bold]"
     handleChange(beforeSel + sel + afterSel)
   }
 
-const detectInputItalic = () => {
+  const detectInputItalic = () => {
     let txtarea = document.getElementById("textEditor");
     if(!txtarea) return
     let start = txtarea.selectionStart;
     let finish = txtarea.selectionEnd;
-
     let beforeSel = txtarea.value.substring(0, start)
     let afterSel = txtarea.value.substring(finish, txtarea.value.length)
     let sel
     if(txtarea.value.substring(start, finish).includes("[italic]")) {
       sel = txtarea.value.substring(start, finish).replace(/\[italic\]/g, "").replace(/\[\/italic\]/g, "")
       sel = sel.replace(/^\s*|\s*$/g, "")
-      if(sel.length === 0) {
-        sel = txtarea.value.substring(start, finish)
-      }
-    } else {
-      sel = "[italic]" + txtarea.value.substring(start, finish) + "[/italic]"
-    }
+      if(sel.length === 0) sel = txtarea.value.substring(start, finish)
+    } else sel = "[italic]" + txtarea.value.substring(start, finish) + "[/italic]"
+    handleChange(beforeSel + sel + afterSel)
+  }
 
+  const changeColorText = (e) => {
+    console.log("Selected color:", e.target.value)
+    changeSelectedTextColor(e.target.value)
+  }
+  const detectInputColor = () => {
+    let txtarea = document.getElementById("textEditor");
+    if(!txtarea) return
+    let start = txtarea.selectionStart;
+    let finish = txtarea.selectionEnd;
+    let beforeSel = txtarea.value.substring(0, start)
+    let afterSel = txtarea.value.substring(finish, txtarea.value.length)
+    let sel
+    if(txtarea.value.substring(start, finish).includes("[color]")) {
+      sel = txtarea.value.substring(start, finish).replace(/\[color\]/g, "").replace(/\[\/color\]/g, "")
+      sel = sel.replace(/^\s*|\s*$/g, "")
+      if(sel.length === 0) sel = txtarea.value.substring(start, finish)
+    } else sel = `[color=${selectedTextColor}]` + txtarea.value.substring(start, finish) + "[/color]"
     handleChange(beforeSel + sel + afterSel)
   }
 
@@ -165,12 +174,12 @@ const detectInputItalic = () => {
               </span>
             </button>
             <div className="is-inline-flex">
-              <button className="button is-light">
+              <button className="button is-light" onClick={detectInputColor}>
                 <span className="icon">
                   <i className="fa-solid fa-paintbrush"></i>
                 </span>
               </button>
-              <input type="color" className="p-1"/>
+              <input type="color" className="mt-1" onChange={changeColorText}/>
             </div>
           </div>
           <textarea

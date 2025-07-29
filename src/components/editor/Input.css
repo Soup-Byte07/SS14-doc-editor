@@ -13,3 +13,32 @@
 .panel-block {
   border-bottom: none;
 }
+
+  input[type="color"] {
+    /* Remove default appearance */
+    -webkit-appearance: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Chrome, Edge, Opera */
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* Firefox */
+  input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 8px;
+  }

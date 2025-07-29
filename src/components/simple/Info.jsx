@@ -26,18 +26,9 @@ function Info() {
               <>
                 <p>
                   This is a web-based editor for creating and formatting documents for Space Station 14 (SS14). 
-                  It provides a real-time preview of your formatted text using SS14's BBCode-style markup system.
+                  It provides a preview of your formatted text using SS14's BBCode-style markup system.
                 </p>
-
-                <h4 className="subtitle is-6 mt-4">Features:</h4>
-                <ul>
-                  <li><strong>Live Preview:</strong> See your formatted text update in real-time as you type</li>
-                  <li><strong>Template Management:</strong> Save, load, and manage multiple document templates</li>
-                  <li><strong>Local Storage:</strong> All templates are saved locally in your browser</li>
-                  <li><strong>Dark/Light Theme:</strong> Toggle between themes using the button in the header</li>
-                  <li><strong>Export Options:</strong> Copy formatted output or download as files</li>
-                </ul>
-
+ 
                 <h4 className="subtitle is-6 mt-4">Supported Formatting Tags:</h4>
                 <ul>
                   <li><code>[bold]text[/bold]</code> - <strong>Bold text</strong></li>
