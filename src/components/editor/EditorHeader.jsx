@@ -29,40 +29,40 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
         </div>
       </div>
       <div className="buttons">
-        <a className="button is-light" href="#" onClick={onLoad}>
+        <a title="Load" className="button is-light" href="#" onClick={onLoad}>
           <span className="icon">
             <i className="fas fa-folder-open"></i>
           </span>
         </a>
-        <a href="#" onClick={onSave} className={classSave}>
+        <a title="Save" href="#" onClick={onSave} className={classSave}>
           <span className="icon">
             <i className="fas fa-save"></i>
           </span>
         </a>
-        <a className="button is-light" href="#" onClick={onSaveAs}>
+        <a title="SaveAs" className="button is-light" href="#" onClick={onSaveAs}>
           <span className="icon">
             <i className="fa-solid fa-file-circle-plus"></i>
           </span>
         </a>
-        <a className="button is-light" href="#" onClick={onClear}>
+        <a title="Clear" className="button is-light" href="#" onClick={onClear}>
           <span className="icon">
             <i className="fas fa-trash-alt"></i>
           </span>
         </a>
-        <a className="button is-light" href="#" onClick={onExport}>
+        <a title="Export" className="button is-light" href="#" onClick={onExport}>
           <span className="icon">
             <i className="fas fa-file-export"></i>
           </span>
         </a>
         <div className="button p-0 mb-0 file is-light">
-          <label className="file-label p-3">
-            <input name="import" className="file-input" type="file" accept=".txt" onChange={onImport} />
+          <label title="Import" className="file-label p-3">
+            <input title="Import" name="import" className="file-input" type="file" accept=".txt" onChange={onImport} />
               <span className="file-icon has-text-dark mr-0">
                 <i className="fas fa-upload "></i>
               </span>
           </label>
         </div>
-        <a className="button is-light is-right" href="#" onClick={onShowPreloaded}>
+        <a title="Show Preload" className="button is-light is-right" href="#" onClick={onShowPreloaded}>
           <span className="icon">
             <i class="fa-solid fa-book"></i>
           </span>
