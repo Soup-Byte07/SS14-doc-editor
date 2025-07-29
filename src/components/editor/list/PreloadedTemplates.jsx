@@ -22,15 +22,13 @@ function PreloadedTemplate({ callback }) {
   }
 
   const templates = useMemo(() => {
-    // filter time
-    
     return txtList.filter(item => {
       if (!searchFilter) return true
       return item.toLowerCase().includes(searchFilter.toLowerCase())
     }).map((item, index) => (
       <tr key={index}>
         <td>
-          <a className="has-text-link is-size-7" href={`/SS14-doc-editor/txt/ss14-forms-txt/${item}`} target="_blank" rel="noopener noreferrer">
+          <a className="has-text-link is-size-7" href={`#`} onClick={() => selectTemplate(item)}>
             {item}
           </a>
         </td>
