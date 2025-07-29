@@ -1,9 +1,11 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import txtList from "../../../assets/ss14TxtManifest.json" // an array of paths
+import "./PreloadedTemplates.css"
 
 function PreloadedTemplate({ callback }) {
+
+  const [searchFilter, changeSearchFilter] = useState("")
   
-  // Select Template from list
   const [errorOnSelection, changeErrorOnSelection] = useState(false)
   const selectTemplate = (path) => {
     console.log("/SS14-doc-editor/txt/ss14-forms-txt/" + path)
@@ -20,7 +22,12 @@ function PreloadedTemplate({ callback }) {
   }
 
   const templates = useMemo(() => {
-    return txtList.map((item, index) => (
+    // filter time
+    
+    return txtList.filter(item => {
+      if (!searchFilter) return true
+      return item.toLowerCase().includes(searchFilter.toLowerCase())
+    }).map((item, index) => (
       <tr key={index}>
         <td>
           <a className="has-text-link is-size-7" href={`/SS14-doc-editor/txt/ss14-forms-txt/${item}`} target="_blank" rel="noopener noreferrer">
@@ -28,7 +35,7 @@ function PreloadedTemplate({ callback }) {
           </a>
         </td>
         <td>
-          <button className="button is-primary" onClick={() => selectTemplate(item)}>
+          <button className="button is-light is-small" onClick={() => selectTemplate(item)}>
             Select
           </button>
         </td>
@@ -37,10 +44,12 @@ function PreloadedTemplate({ callback }) {
   })
 
   return (
-    <div className="preloaded-template p-5 is-flex is-flex-direction-column is-align-items-center" style={{ minHeight: '100vh' }}>
+    <div className="preloaded-template p-5 ">
       <div className="content">
         <p className="is-size-5 has-text-weight-bold">What is this?</p>
-        <p className="m-1 is-size-6">These are files from another repo called <span class="has-text-link is-italic">ss14-forms-txt</span>.</p>
+        <p className="m-1 is-size-6">These are files from another repo called <span class="has-text-link is-italic">ss14-forms-txt</span>. This is a list of community posted templates that are on this github. Here is the link to the
+          <a href="https://github.com/Moomoobeef/ss14-forms-txt" target="_blank"> github repo</a>.
+        </p>
       </div>
       {
         errorOnSelection && (
@@ -51,6 +60,15 @@ function PreloadedTemplate({ callback }) {
         )
       }
       <div class="m-1">
+            <input
+              className="input is-fullwidth"
+              type="text"
+              placeholder="Search templates..."
+              value={searchFilter}
+              onChange={(e) => changeSearchFilter(e.target.value)}
+            />
+      </div>
+      <div class="m-1 scrollable-list">
         <table className="table is-striped is-hoverable is-fullwidth is-narrow">
           <tbody>
             {templates}

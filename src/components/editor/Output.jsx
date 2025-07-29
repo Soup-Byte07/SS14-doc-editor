@@ -20,7 +20,7 @@ function Output({ handleInput }) {
   return (
     <div className="output-container m-4">
       <h2 className="title is-4">Output</h2>
-      <div>
+      <div className="scrollable-paper">
         <div className="paper content has-text-dark is-family-noto-sans">
           <div dangerouslySetInnerHTML={{ __html: outputHTML }} />
         </div>

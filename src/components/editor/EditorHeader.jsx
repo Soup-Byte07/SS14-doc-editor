@@ -54,7 +54,7 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
             <i className="fas fa-file-export"></i>
           </span>
         </a>
-        <div className="button p-0 file is-light">
+        <div className="button p-0 mb-0 file is-light">
           <label className="file-label p-3">
             <input name="import" className="file-input" type="file" accept=".txt" onChange={onImport} />
               <span className="file-icon has-text-dark mr-0">
@@ -63,7 +63,9 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
           </label>
         </div>
         <a className="button is-light is-right" href="#" onClick={onShowPreloaded}>
-          Preloaded Templates
+          <span className="icon">
+            <i class="fa-solid fa-book"></i>
+          </span>
         </a>
       </div>
     </>

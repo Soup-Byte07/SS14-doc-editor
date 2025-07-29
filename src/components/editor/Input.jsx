@@ -30,7 +30,6 @@ function Input({handleChange, handleText}) {
 
   let [isPreloadedTemplatesOpen, openPreloadedTemplates] = useState(false)
   let loadPreloadedTemplate = (template) => {
-
     handleChange(template)
     openPreloadedTemplates(false)
   }
@@ -110,6 +109,21 @@ function Input({handleChange, handleText}) {
     handleChange(beforeSel + sel + afterSel)
   }
 
+  const detectBulletPoint = () => {
+    let txtarea = document.getElementById("textEditor");
+    if(!txtarea) return
+    let start = txtarea.selectionStart;
+    let finish = txtarea.selectionEnd;
+    let beforeSel = txtarea.value.substring(0, start)
+    let afterSel = txtarea.value.substring(finish, txtarea.value.length)
+    let sel
+    if(txtarea.value.substring(start, finish).includes("[bullet/]")) {
+      sel = txtarea.value.substring(start, finish).replace(/\[bullet\/\]/g, "")
+      sel = sel.replace(/^\s*|\s*$/g, "")
+      if(sel.length === 0) sel = txtarea.value.substring(start, finish)
+    } else sel = "[bullet/]" + txtarea.value.substring(start, finish)
+    handleChange(beforeSel + sel + afterSel)
+  }
 
   return (
     <div className="input-container">
@@ -190,6 +204,11 @@ function Input({handleChange, handleText}) {
             <button className="button is-light" onClick={detectInputItalic}>
               <span className="icon">
                 <i className="fa-solid fa-italic"></i>
+              </span>
+            </button>
+            <button className="button is-light" onClick={detectBulletPoint}>
+              <span className="icon">
+                <i class="fa-solid fa-list-ul"></i>
               </span>
             </button>
             <div className="is-inline-flex">

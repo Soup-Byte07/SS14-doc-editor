@@ -12,7 +12,7 @@ function HandleTheme({nextTheme, changeTheme}) {
 
   return (
     <>
-      <button className="button" onClick={change}>
+      <button className="button" disabled onClick={change}>
         <span className="icon">
           <i className={`fa-solid fa-${nextTheme == 'dark' ? 'sun' : 'moon'}`}></i>
         </span>
