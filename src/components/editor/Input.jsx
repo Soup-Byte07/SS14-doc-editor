@@ -208,7 +208,7 @@ function Input({handleChange, handleText}) {
             </button>
             <button className="button is-light" onClick={detectBulletPoint}>
               <span className="icon">
-                <i class="fa-solid fa-list-ul"></i>
+                <i className="fa-solid fa-list-ul"></i>
               </span>
             </button>
             <div className="is-inline-flex">

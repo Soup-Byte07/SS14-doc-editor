@@ -64,7 +64,7 @@ function EditorHeader({ onLoad, classSave, onSave, onSaveAs, onClear, onImport, 
         </div>
         <a title="Show Preload" className="button is-light is-right" href="#" onClick={onShowPreloaded}>
           <span className="icon">
-            <i class="fa-solid fa-book"></i>
+            <i className="fa-solid fa-book"></i>
           </span>
         </a>
       </div>
