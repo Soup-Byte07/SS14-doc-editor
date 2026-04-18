@@ -50,10 +50,10 @@ function Info() {
 
                 <h4 className="subtitle is-6 mt-4">Tips:</h4>
                 <ul>
-                  <li>Tags can be nested for combined effects</li>
+                  <li>Tags can be nested</li>
                   <li>Line breaks are preserved in the output</li>
-                  <li>All content is sanitized for security</li>
-                  <li>Templates are stored locally - clearing browser data will remove them</li>
+                  <li>All content is sanitized so chuds cant put an anchor tag into the thing.</li>
+                  <li>Templates are stored locally, so clearing browser data will remove them</li>
                 </ul>
 
 
